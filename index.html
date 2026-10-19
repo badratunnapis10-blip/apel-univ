@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <script>window["__codeletBootstrap__"] = JSON.parse('{"A":"A","B":"20261019-04-fd46897","C":{"Abril Fatface":"YACgEZbkUVE,0","Albert Sans":"YAHO2HRfeh4,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo Black":"YACgEZulLoA,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Baloo 2":"YAHO2IcQUcM,0","Barlow Condensed":"YAFdJljEuFc,0","Barlow":"YAFdJsyuOPM,1","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Cairo":"YAFdtXpDzlQ,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Cinzel":"YACgEeV8bIQ,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Figtree":"YAHO2b-mV7A,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Fredoka":"YACgEZml080,0","Georgia":"YAGzXkO0pEM,0","Hanken Grotesk":"YAHO2VB9G0I,0","Helvetica":"YAFcf7zkXN0,0","IBM Plex Mono":"YAFdJkmvhGI,0","IBM Plex Sans":"YAFdJgT0SHI,0","Impact":"YAFcfnjI7Vk,0","Instrument Sans":"YAHO2bKyaSQ,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Italiana":"YAHO2Toik_w,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Karla":"YAHO2V2NSXM,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Libre Caslon Display":"YAHO2XhLmt0,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Noto Sans JP":"YAFdJiHXlcI,0","Noto Sans KR":"YAGsojZj-RQ,0","Nunito Sans":"YAFdtQJYB9w,1","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Open Sans":"YAFdJt8dAY0,1","Oswald":"YACgEQY10lw,0","Outfit":"YAHO2nVlg14,0","Pacifico":"YADLjORQ1u4,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAHO2gdhi18,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Public Sans":"YAFdJj8NdaU,1","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","STIX Two Text":"YAHO2joycuk,0","Sarabun":"YAFdJssSnME,0","Schibsted Grotesk":"YAHO2sWydRk,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Space Grotesk":"YAHO2sjPCSM,0","Space Mono":"YADW1-vpsoc,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0"}}');</script>
+    <script src="/_sdk/05db820ba1544614.telemetry_sdk.js"
+        integrity="sha512-a7JzkQDDcioSXpM61nxTfeRW7PcxWQy5+BrhyeTFmQFsXJ+Gncm0y50u7fTA7qOPegFnRgqCfa0mGUOK1yjDWQ=="></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PresensiKampus — Demo Absensi Mahasiswa</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --blue: #2563eb;
+            --ink: #142443;
+            --muted: #60708b;
+            --line: #e3eaf4;
+            --wash: #f3f7fc
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--ink);
+            margin: 0
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: .5
+        }
+
+        :focus-visible {
+            outline: 3px solid #60a5fa;
+            outline-offset: 2px
+        }
+
+        .surface {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px #16325a08
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-radius: 11px;
+            padding: 10px 15px;
+            font-weight: 700;
+            min-height: 42px;
+            transition: transform .18s, box-shadow .18s
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px #1e40af25
+        }
+
+        .primary {
+            background: var(--blue);
+            color: white
+        }
+
+        .soft {
+            background: #eaf1ff;
+            color: #1d4ed8
+        }
+
+        .outline {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--ink)
+        }
+
+        .field {
+            width: 100%;
+            border: 1px solid #d8e2f0;
+            background: white;
+            border-radius: 11px;
+            padding: 10px 12px;
+            min-height: 43px
+        }
+
+        .field:focus {
+            outline: 2px solid #93c5fd;
+            border-color: #60a5fa
+        }
+
+        .lbl {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #354663
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            background: #eaf1ff;
+            color: #2454ad
+        }
+
+        .hidden-view {
+            display: none !important
+        }
+
+        .table-wrap {
+            overflow: auto;
+            width: 100%
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 640px;
+            text-align: left;
+            font-size: 13px
+        }
+
+        th {
+            color: #687790;
+            background: #f7f9fd;
+            font-weight: 700
+        }
+
+        td,
+        th {
+            padding: 12px;
+            border-bottom: 1px solid #edf1f7;
+            vertical-align: middle
+        }
+
+        .nav-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 11px 13px;
+            border-radius: 11px;
+            text-align: left;
+            color: #536582;
+            font-weight: 600
+        }
+
+        .nav-item.active,
+        .nav-item:hover {
+            background: #eaf1ff;
+            color: #1d4ed8
+        }
+
+        .nav-item svg {
+            width: 18px;
+            height: 18px
+        }
+
+        .mini svg {
+            width: 16px;
+            height: 16px
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 78% 18%, #dbeafe 0, transparent 45%), linear-gradient(145deg, #f7faff, #edf5ff)
+        }
+
+        .stat-number {
+            font-size: 29px;
+            font-weight: 800;
+            letter-spacing: -.05em
+        }
+
+        .fade {
+            animation: up .45s both
+        }
+
+        @keyframes up {
+            from {
+                opacity: 0;
+                transform: translateY(12px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: #0f1c37a8;
+            z-index: 60;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px
+        }
+
+        .modal-box {
+            background: white;
+            border-radius: 22px;
+            width: min(100%, 620px);
+            max-height: calc(90 * min(var(--vh, 1vh), 1vh));
+            overflow: auto;
+            box-shadow: 0 28px 70px #07163845
+        }
+
+        .toast {
+            position: fixed;
+            right: 20px;
+            bottom: 22px;
+            z-index: 80;
+            background: #122b56;
+            color: #fff;
+            padding: 13px 18px;
+            border-radius: 13px;
+            box-shadow: 0 10px 30px #122b5640
+        }
+
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+            gap: 2px;
+            width: 148px;
+            height: 148px;
+            background: #fff;
+            padding: 8px;
+            border: 1px solid #d8e2f0;
+            border-radius: 9px
+        }
+
+        .qr-cell {
+            background: #fff
+        }
+
+        .qr-cell.dark {
+            background: #132c59
+        }
+
+        @media(max-width:767px) {
+            .desktop-side {
+                display: none !important
+            }
+
+            .app-main {
+                padding-bottom: 82px !important
+            }
+
+            .mobile-nav {
+                display: flex !important
+            }
+
+            .toast {
+                bottom: 84px;
+                left: 16px;
+                right: 16px
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+    <script src="/_sdk/570d53629f0b998d.data_sdk.js" type="text/javascript"
+        integrity="sha512-JEN39+V+Nvv9ZZOVS8vNk1iA9ErZJHTdgOw9KzPuMiK7m0I+KPEr/wmTnCFIQVsDjCZgJWfGnFi1IQh2Io2qyA=="></script>
+    <script src="/_sdk/27a73d0f6d576f4d.editing_sdk.js" type="text/javascript"
+        integrity="sha512-0x+G+gK8ndpjUSDbA089Mrgu5PHq4v9Csb0QtQHziS+rPUPoxPkx7w9quugJtYtMDiv2wfqmcYtCInS0i6eOvg=="></script>
+    <script src="/_sdk/03eb2403dcb2c820.resizing_sdk.js" type="text/javascript"
+        integrity="sha512-3rStQpeHJ9SpUz/tPWj3qoOTc5Wdb4M77IFGFVtMTQ/GLbCg6/OVP+yWZaTo/YDzpJdLk+FvEXzvR4ZNQQ4/HQ=="></script>
+</head>
+
+<body data-template-id="__page-root" class="w-full min-h-screen" style="background: rgb(255, 255, 255);">
+    <div id="public-view">
+        <header class="w-full bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3"><img data-template-id="brand-logo-public" loading="lazy"
+                        class="canva-image w-9 h-9 object-contain" src="canva://MAHU_tX42CY/1" alt="Logo merek biru">
+                    <span data-template-id="brand-name-public" class="canva-text font-extrabold tracking-tight"
+                        style="color: rgb(20, 36, 67); font-weight: 800; font-style: normal; font-size: 16px;">PresensiKampus</span>
+                </div><button data-template-id="landing-login" id="landing-login" class="canva-button btn primary"
+                    type="button"
+                    style="background: rgb(37, 99, 235); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Masuk
+                    ke Dashboard</button>
+            </div>
+        </header>
+        <main>
+            <section data-template-id="hero-section" class="canva-section hero-glow w-full"
+                style="background: linear-gradient(145deg, rgb(247, 250, 255), rgb(237, 245, 255));">
+                <div class="max-w-7xl mx-auto px-5 py-14 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+                    <div class="fade"><span data-template-id="hero-eyebrow" class="canva-tag chip mb-5"
+                            style="background: rgb(234, 241, 255); color: rgb(36, 84, 173); font-weight: 700; font-style: normal; font-size: 12px;">●
+                            PLATFORM ABSENSI KAMPUS</span>
+                        <h1 data-template-id="hero-title"
+                            class="canva-text font-extrabold leading-tight tracking-tight mb-5"
+                            style="color: rgb(20, 36, 67); font-weight: 800; font-style: normal; font-size: 52px;">
+                            Absensi kampus yang lebih cepat, jelas, dan terarah.</h1>
+                        <p data-template-id="hero-description" class="canva-text leading-relaxed mb-7 max-w-xl"
+                            style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 18px;">
+                            Satu ruang kerja untuk mahasiswa, dosen, dan admin. Jelajahi alur QR, lokasi kampus, serta
+                            bukti selfie melalui demo interaktif.</p><button data-template-id="hero-cta" id="hero-cta"
+                            class="canva-button btn primary" type="button"
+                            style="background: rgb(37, 99, 235); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Coba
+                            dashboard demo →</button>
+                        <p data-template-id="hero-note" class="canva-text mt-4"
+                            style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 13px;">
+                            Tanpa konfigurasi awal · Seluruh pemeriksaan keamanan pada halaman ini adalah simulasi.</p>
+                        <div class="grid grid-cols-2 max-w-sm gap-4 mt-9">
+                            <div data-template-id="hero-stat-card-one" class="canva-card surface p-4"
+                                style="background: rgb(255, 255, 255);">
+                                <strong data-template-id="hero-stat-one" class="canva-text block stat-number"
+                                    style="color: rgb(20, 36, 67); font-weight: 800; font-style: normal; font-size: 16px;">1.284</strong><span
+                                    data-template-id="hero-stat-label-one" class="canva-text"
+                                    style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 12px;">Mahasiswa
+                                    · ilustrasi</span>
+                            </div>
+                            <div data-template-id="hero-stat-card-two" class="canva-card surface p-4"
+                                style="background: rgb(255, 255, 255);">
+                                <strong data-template-id="hero-stat-two" class="canva-text block stat-number"
+                                    style="color: rgb(20, 36, 67); font-weight: 800; font-style: normal; font-size: 16px;">92%</strong><span
+                                    data-template-id="hero-stat-label-two" class="canva-text"
+                                    style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 12px;">Hadir
+                                    hari ini · ilustrasi</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative fade"><img data-template-id="hero-photo" loading="lazy"
+                            class="canva-image w-full h-80 md:h-[430px] object-cover rounded-[28px] shadow-2xl"
+                            src="https://images.pexels.com/photos/9159042/pexels-photo-9159042.jpeg"
+                            alt="Mahasiswa belajar di kelas bersama pengajar dan laptop">
+                        <div data-template-id="hero-preview"
+                            class="canva-card surface absolute -bottom-6 left-3 md:-left-7 p-5 max-w-[260px]"
+                            style="background: rgb(255, 255, 255);"><span data-template-id="preview-label"
+                                class="canva-text block mb-1"
+                                style="color: rgb(96, 112, 139); font-weight: 700; font-style: normal; font-size: 11px;">PREVIEW
+                                DASHBOARD</span> <strong data-template-id="preview-title" class="canva-text block"
+                                style="color: rgb(20, 36, 67); font-weight: 700; font-style: normal; font-size: 16px;">Kehadiran
+                                terus terpantau</strong>
+                            <div class="h-2 bg-blue-100 rounded-full mt-4">
+                                <div class="h-full w-[88%] bg-blue-600 rounded-full"></div>
+                            </div><span data-template-id="preview-caption" class="canva-text block mt-2"
+                                style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 11px;">Tampilan
+                                ringkas untuk setiap role</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="max-w-7xl mx-auto px-5 py-20">
+                <div class="text-center mb-10">
+                    <h2 data-template-id="features-title" class="canva-text font-extrabold"
+                        style="color: rgb(20, 36, 67); font-weight: 800; font-style: normal; font-size: 24px;">Satu
+                        alur, tiga lapis pemeriksaan</h2>
+                    <p data-template-id="features-description" class="canva-text mt-2"
+                        style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 16px;">
+                        Pratinjau pengalaman absensi yang siap dikembangkan lebih lanjut.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-5">
+                    <article data-template-id="feature-qr" class="canva-card surface p-6"
+                        style="background: rgb(255, 255, 255);">
+                        <div class="text-blue-600 mb-4">
+                            <i data-lucide="scan-line"></i>
+                        </div>
+                        <h3 data-template-id="feature-qr-title" class="canva-text font-bold mb-2"
+                            style="color: rgb(20, 36, 67); font-weight: 700; font-style: normal; font-size: 19px;">Kode
+                            sesi QR</h3>
+                        <p data-template-id="feature-qr-text" class="canva-text leading-relaxed"
+                            style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 16px;">
+                            Dosen membuka sesi berbatas waktu. Mahasiswa memasukkan kode demo untuk mencoba alurnya.</p>
+                    </article>
+                    <article data-template-id="feature-gps" class="canva-card surface p-6"
+                        style="background: rgb(255, 255, 255);">
+                        <div class="text-blue-600 mb-4">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <h3 data-template-id="feature-gps-title" class="canva-text font-bold mb-2"
+                            style="color: rgb(20, 36, 67); font-weight: 700; font-style: normal; font-size: 19px;">
+                            Radius kampus</h3>
+                        <p data-template-id="feature-gps-text" class="canva-text leading-relaxed"
+                            style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 16px;">
+                            Simulasi pemeriksaan jarak 100 meter dan penolakan saat sinyal lokasi tidak valid.</p>
+                    </article>
+                    <article data-template-id="feature-selfie" class="canva-card surface p-6"
+                        style="background: rgb(255, 255, 255);">
+                        <div class="text-blue-600 mb-4">
+                            <i data-lucide="camera"></i>
+                        </div>
+                        <h3 data-template-id="feature-selfie-title" class="canva-text font-bold mb-2"
+                            style="color: rgb(20, 36, 67); font-weight: 700; font-style: normal; font-size: 19px;">Bukti
+                            selfie</h3>
+                        <p data-template-id="feature-selfie-text" class="canva-text leading-relaxed"
+                            style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 16px;">
+                            Foto wajib tersedia sebelum konfirmasi demo. Tidak ada verifikasi biometrik nyata.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <footer data-template-id="public-footer" class="canva-footer bg-[#102b56] text-white px-5 py-8 text-center"
+            style="background: rgb(16, 43, 86);">
+            <span data-template-id="footer-copy" class="canva-text"
+                style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 13px;">© 2026
+                PresensiKampus · Prototipe interaktif, bukan sistem absensi produksi.</span>
+        </footer>
+    </div>
+    <main id="login-view"
+        class="hidden-view w-full min-h-screen bg-[#f2f7ff] px-5 py-10 flex items-center justify-center">
+        <div class="surface p-7 md:p-9 w-full max-w-md fade"><button id="back-landing" class="btn outline mini mb-7"
+                type="button"><i data-lucide="arrow-left"></i><span data-template-id="back-label" class="canva-text"
+                    style="color: rgb(20, 36, 67); font-weight: 400; font-style: normal; font-size: 16px;">Kembali</span></button>
+            <div class="flex items-center gap-3 mb-6">
+                <img data-template-id="brand-logo-login" loading="lazy" class="canva-image w-10 h-10 object-contain"
+                    src="canva://MAHU_tX42CY/1" alt="Logo merek biru"><strong data-template-id="brand-name-login"
+                    class="canva-text"
+                    style="color: rgb(20, 36, 67); font-weight: 800; font-style: normal; font-size: 16px;">PresensiKampus</strong>
+            </div>
+            <h1 data-template-id="login-title" class="canva-text font-extrabold mb-2"
+                style="color: rgb(20, 36, 67); font-weight: 800; font-style: normal; font-size: 32px;">Selamat datang
+                kembali</h1>
+            <p data-template-id="login-description" class="canva-text mb-7"
+                style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 16px;">Pilih role dan
+                gunakan akun demo untuk masuk.</p>
+            <form id="login-form" class="space-y-4" novalidate="">
+                <div>
+                    <label data-template-id="role-label" for="login-role" class="canva-text lbl"
+                        style="color: rgb(53, 70, 99); font-weight: 700; font-style: normal; font-size: 16px;">Masuk
+                        sebagai</label><select id="login-role" class="field">
+                        <option value="mahasiswa">Mahasiswa</option>
+                        <option value="dosen">Dosen</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div>
+                    <label data-template-id="identity-label" for="login-id" class="canva-text lbl"
+                        style="color: rgb(53, 70, 99); font-weight: 700; font-style: normal; font-size: 16px;">NIM /
+                        NIDN / ID Admin</label><input id="login-id" class="field" autocomplete="username" required="">
+                </div>
+                <div>
+                    <label data-template-id="password-label" for="login-password" class="canva-text lbl"
+                        style="color: rgb(53, 70, 99); font-weight: 700; font-style: normal; font-size: 16px;">Password
+                        demo</label>
+                    <div class="flex gap-2">
+                        <input id="login-password" class="field" type="password" autocomplete="current-password"
+                            required=""><button id="toggle-password" class="btn outline mini shrink-0" type="button"
+                            aria-label="Tampilkan atau sembunyikan password"><i data-lucide="eye"></i></button>
+                    </div>
+                </div>
+                <p id="login-error" class="text-sm text-red-600 hidden" role="alert"></p><button
+                    data-template-id="login-submit" id="login-submit" class="canva-button btn primary w-full"
+                    type="submit"
+                    style="background: rgb(37, 99, 235); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Masuk</button>
+            </form>
+            <div class="mt-6 border-t pt-5">
+                <p data-template-id="demo-accounts-label" class="canva-text mb-3"
+                    style="color: rgb(20, 36, 67); font-weight: 700; font-style: normal; font-size: 16px;">Pilih akun
+                    demo:</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <button data-template-id="demo-admin" data-demo="admin" class="canva-button btn soft text-sm"
+                        type="button"
+                        style="background: rgb(234, 241, 255); color: rgb(29, 78, 216); font-weight: 700; font-style: normal; font-size: 16px;">Admin</button><button
+                        data-template-id="demo-dosen" data-demo="dosen" class="canva-button btn soft text-sm"
+                        type="button"
+                        style="background: rgb(234, 241, 255); color: rgb(29, 78, 216); font-weight: 700; font-style: normal; font-size: 16px;">Dosen</button><button
+                        data-template-id="demo-mahasiswa" data-demo="mahasiswa" class="canva-button btn soft text-sm"
+                        type="button"
+                        style="background: rgb(234, 241, 255); color: rgb(29, 78, 216); font-weight: 700; font-style: normal; font-size: 16px;">Mahasiswa</button>
+                </div>
+                <p data-template-id="demo-warning" class="canva-text mt-4"
+                    style="color: rgb(96, 112, 139); font-weight: 400; font-style: normal; font-size: 12px;">Password
+                    semua akun: demo123. Login ini hanya simulasi; data akan kembali ke awal setelah halaman dimuat
+                    ulang.</p>
+            </div>
+        </div>
+    </main>
+    <div id="app-view" class="hidden-view w-full min-h-screen bg-[#f3f7fc]">
+        <div class="flex w-full min-h-screen">
+            <aside class="desktop-side w-64 shrink-0 bg-white border-r border-slate-200 p-5 flex flex-col">
+                <div class="flex items-center gap-3 px-2 mb-10">
+                    <img data-template-id="brand-logo-app" loading="lazy" class="canva-image w-9 h-9 object-contain"
+                        src="canva://MAHU_tX42CY/1" alt="Logo merek biru"><strong data-template-id="brand-name-app"
+                        class="canva-text"
+                        style="color: rgb(20, 36, 67); font-weight: 800; font-style: normal; font-size: 16px;">PresensiKampus</strong>
+                </div>
+                <nav id="side-nav" aria-label="Navigasi utama" class="space-y-1"></nav>
+                <div class="mt-auto bg-blue-50 rounded-xl p-4 text-xs text-blue-900">
+                    <span data-template-id="sidebar-note" class="canva-text"
+                        style="color: rgb(30, 58, 138); font-weight: 400; font-style: normal; font-size: 12px;">MODE
+                        DEMO · Data tidak terhubung ke Supabase dan akan direset saat halaman dimuat ulang.</span>
+                </div>
+            </aside>
+            <div class="flex-1 min-w-0">
+                <header
+                    class="bg-white border-b border-slate-200 px-5 md:px-8 py-4 flex items-center justify-between gap-3">
+                    <div>
+                        <p data-template-id="app-eyebrow" class="canva-text"
+                            style="color: rgb(96, 112, 139); font-weight: 700; font-style: normal; font-size: 11px;">
+                            PORTAL AKADEMIK / DEMO</p>
+                        <h1 id="view-heading" class="font-extrabold text-xl md:text-2xl"></h1>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="hidden sm:inline-flex chip">● Online · Demo</span>
+                        <div id="role-avatar"
+                            class="w-9 h-9 rounded-full bg-blue-600 text-white grid place-items-center font-bold"
+                            aria-label="Avatar role">
+                            M
+                        </div><button data-template-id="logout-button" id="logout"
+                            class="canva-button btn outline text-sm" type="button"
+                            style="background: rgb(255, 255, 255); color: rgb(20, 36, 67); font-weight: 700; font-style: normal; font-size: 16px;">Keluar</button>
+                    </div>
+                </header>
+                <main class="app-main max-w-7xl mx-auto px-4 md:px-8 py-7">
+                    <div data-template-id="security-banner"
+                        class="canva-banner bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-6 flex gap-3 text-sm text-amber-950"
+                        style="background: rgb(255, 251, 235);">
+                        <i data-lucide="shield-alert" class="shrink-0"></i><span data-template-id="security-text"
+                            class="canva-text"
+                            style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 13px;">Penting:
+                            validasi produksi wajib dilakukan di backend Supabase Edge Functions dan RLS. Browser tidak
+                            boleh dipercaya sepenuhnya; seluruh QR, lokasi, perangkat, dan selfie di sini adalah
+                            simulasi.</span>
+                    </div>
+                    <div id="page-content" aria-live="polite"></div>
+                </main>
+            </div>
+        </div>
+        <nav id="mobile-nav" aria-label="Navigasi mobile"
+            class="mobile-nav hidden fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-slate-200 px-2 py-2 justify-around gap-1">
+        </nav>
+    </div>
+    <div id="modal-root"></div>
+    <div id="toast-root" aria-live="polite"></div>
+    <script>
+        (() => {
+            const $ = s => document.querySelector(s);
+            const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+            const today = () => new Date().toISOString().slice(0, 10);
+            const students = [
+                {id: '1', nim: '202401001', nama: 'Nadia Putri', jurusan: 'Teknik Informatika', kelas: 'TI-4A', semester: '4'},
+                {id: '2', nim: '202401002', nama: 'Rizky Pratama', jurusan: 'Teknik Informatika', kelas: 'TI-4A', semester: '4'},
+                {id: '3', nim: '202401003', nama: 'Alya Rahma', jurusan: 'Sistem Informasi', kelas: 'SI-4B', semester: '4'},
+                {id: '4', nim: '202401004', nama: 'Bagas Saputra', jurusan: 'Teknik Informatika', kelas: 'TI-4A', semester: '4'}
+            ];
+            const lecturers = [{id: '1', nidn: '0018088501', nama: 'Dr. Bima Santoso', jurusan: 'Teknik Informatika'}, {id: '2', nidn: '0023038702', nama: 'Dra. Maya Larasati', jurusan: 'Sistem Informasi'}];
+            const courses = [{id: '1', kode: 'IF204', nama: 'Basis Data', sks: '3', dosen: 'Dr. Bima Santoso'}, {id: '2', kode: 'IF210', nama: 'Pemrograman Web', sks: '3', dosen: 'Dr. Bima Santoso'}, {id: '3', kode: 'SI202', nama: 'Analisis Sistem', sks: '3', dosen: 'Dra. Maya Larasati'}];
+            const schedules = [{id: '1', mata_kuliah: 'Basis Data', kelas: 'TI-4A', hari: 'Senin', jam: '09:00', ruang: 'Lab 2'}, {id: '2', mata_kuliah: 'Pemrograman Web', kelas: 'TI-4A', hari: 'Rabu', jam: '10:30', ruang: 'Lab 1'}, {id: '3', mata_kuliah: 'Analisis Sistem', kelas: 'SI-4B', hari: 'Kamis', jam: '08:00', ruang: 'R. 305'}];
+            const sessions = [{id: 'S1', mata_kuliah: 'Basis Data', pertemuan: '7', tanggal: today(), durasi: 15, metode: 'QR Code', dibuat: Date.now(), kode: 'KAMPUS7'}];
+            const attendance = [{id: 'A1', sesi: 'S1', nim: '202401002', nama: 'Rizky Pratama', mata_kuliah: 'Basis Data', kelas: 'TI-4A', jurusan: 'Teknik Informatika', semester: '4', tanggal: today(), status: 'Hadir', catatan: ''}, {id: 'A2', sesi: 'S1', nim: '202401004', nama: 'Bagas Saputra', mata_kuliah: 'Basis Data', kelas: 'TI-4A', jurusan: 'Teknik Informatika', semester: '4', tanggal: today(), status: 'Telat', catatan: ''}, {id: 'A3', sesi: 'lama', nim: '202401001', nama: 'Nadia Putri', mata_kuliah: 'Pemrograman Web', kelas: 'TI-4A', jurusan: 'Teknik Informatika', semester: '4', tanggal: '2026-10-14', status: 'Hadir', catatan: ''}];
+            const requests = []; const deviceBindings = new Map();
+            const credentials = {admin: {id: 'admin01', password: 'demo123', name: 'Admin Kampus'}, dosen: {id: '0018088501', password: 'demo123', name: 'Dr. Bima Santoso'}, mahasiswa: {id: '202401001', password: 'demo123', name: 'Nadia Putri'}};
+            const navs = {admin: [['overview', 'Ringkasan', 'layout-dashboard'], ['mahasiswa', 'Mahasiswa', 'users'], ['dosen', 'Dosen', 'graduation-cap'], ['matakuliah', 'Mata kuliah', 'book-open'], ['jadwal', 'Jadwal', 'calendar-days'], ['laporan', 'Laporan', 'file-chart-column-increasing'], ['docs', 'Dokumentasi Teknis', 'file-code-2']], dosen: [['overview', 'Ringkasan', 'layout-dashboard'], ['sesi', 'Sesi absensi', 'qr-code'], ['rekap', 'Rekap semester', 'chart-no-axes-column'], ['docs', 'Dokumentasi Teknis', 'file-code-2']], mahasiswa: [['overview', 'Ringkasan', 'layout-dashboard'], ['riwayat', 'Riwayat', 'history'], ['pengajuan', 'Izin / Sakit', 'file-plus-2'], ['docs', 'Dokumentasi Teknis', 'file-code-2']]};
+            const definitions = {
+                mahasiswa: {title: 'Mahasiswa', fields: [['nim', 'NIM'], ['nama', 'Nama'], ['jurusan', 'Jurusan'], ['kelas', 'Kelas'], ['semester', 'Semester']]},
+                dosen: {title: 'Dosen', fields: [['nidn', 'NIDN'], ['nama', 'Nama'], ['jurusan', 'Jurusan']]},
+                matakuliah: {title: 'Mata kuliah', fields: [['kode', 'Kode'], ['nama', 'Nama'], ['sks', 'SKS'], ['dosen', 'Dosen']]},
+                jadwal: {title: 'Jadwal', fields: [['mata_kuliah', 'Mata kuliah'], ['kelas', 'Kelas'], ['hari', 'Hari'], ['jam', 'Jam'], ['ruang', 'Ruang']]}
+            };
+            const collections = {mahasiswa: students, dosen: lecturers, matakuliah: courses, jadwal: schedules};
+            let role = null, page = 'overview', query = '', pageNum = 1, reportFilters = {}, modalReturnFocus = null;
+            function icons() {if (window.lucide) lucide.createIcons()}
+            function toast(message) {const root = $('#toast-root'); root.innerHTML = `<div class="toast" role="status">${esc(message)}</div>`; setTimeout(() => {root.innerHTML = ''}, 4000)}
+            function showView(view) {['public', 'login', 'app'].forEach(n => $('#' + n + '-view').classList.toggle('hidden-view', n !== view)); window.scrollTo({top: 0, behavior: 'smooth'})}
+            function openModal(html) {modalReturnFocus = document.activeElement; $('#modal-root').innerHTML = `<div class="modal-backdrop" id="modal-backdrop"><div class="modal-box p-6" role="dialog" aria-modal="true" aria-label="Dialog aplikasi">${html}</div></div>`; $('#modal-root .modal-box').querySelector('button,input,select,textarea')?.focus(); icons()}
+            function closeModal() {$('#modal-root').innerHTML = ''; modalReturnFocus?.focus()}
+            function statusTag(v) {let colors = {Hadir: 'bg-emerald-50 text-emerald-700', Telat: 'bg-amber-50 text-amber-700', Izin: 'bg-blue-50 text-blue-700', Sakit: 'bg-cyan-50 text-cyan-700', Alpha: 'bg-rose-50 text-rose-700'}; return `<span class="chip ${colors[v] || ''}">${esc(v)}</span>`}
+            function stat(title, value, icon) {return `<div class="surface p-5"><div class="flex justify-between items-start"><span class="text-sm text-slate-500">${esc(title)}</span><i data-lucide="${icon}" class="text-blue-600"></i></div><strong class="stat-number block mt-4">${esc(value)}</strong></div>`}
+            function heading(title, subtitle, button = '') {return `<div class="flex flex-wrap justify-between items-end gap-3 mb-5"><div><h2 class="text-xl font-extrabold">${esc(title)}</h2><p class="text-sm text-slate-500 mt-1">${esc(subtitle)}</p></div>${button}</div>`}
+            function sessionOpen(s) {return Date.now() < s.dibuat + Number(s.durasi) * 60000}
+            function remaining(s) {let t = Math.max(0, Math.ceil((s.dibuat + Number(s.durasi) * 60000 - Date.now()) / 1000)); return `${String(Math.floor(t / 60)).padStart(2, '0')}:${String(t % 60).padStart(2, '0')}`}
+            function nav() {let links = navs[role]; $('#side-nav').innerHTML = links.map(([id, label, icon]) => `<button class="nav-item ${page === id ? 'active' : ''}" data-page="${id}" type="button"><i data-lucide="${icon}"></i>${label}</button>`).join(''); $('#mobile-nav').innerHTML = links.map(([id, label, icon]) => `<button class="flex flex-col items-center justify-center min-w-0 flex-1 text-[10px] ${page === id ? 'text-blue-700' : 'text-slate-500'}" data-page="${id}" type="button" aria-label="${label}"><i data-lucide="${icon}" class="w-5 h-5 mb-1"></i><span class="truncate max-w-full">${label === 'Dokumentasi Teknis' ? 'Dokumen' : label}</span></button>`).join(''); $('#view-heading').textContent = links.find(x => x[0] === page)?.[1] || 'Ringkasan'; $('#role-avatar').textContent = role[0].toUpperCase(); icons()}
+            function navigate(p) {if (!navs[role]?.some(x => x[0] === p)) return; page = p; query = ''; pageNum = 1; nav(); render(); window.scrollTo({top: 0, behavior: 'smooth'})}
+            function render() {if (!role) return; let html = page === 'docs' ? docs() : role === 'admin' ? adminPage() : role === 'dosen' ? lecturerPage() : studentPage(); $('#page-content').innerHTML = html; icons()}
+            function adminPage() {
+                if (page === 'overview') return heading('Pusat kendali kampus', 'Ringkasan operasional data demo hari ini') + `<div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">${stat('Total mahasiswa', students.length, 'users')}${stat('Dosen', lecturers.length, 'graduation-cap')}${stat('Mata kuliah', courses.length, 'book-open')}${stat('Hadir hari ini', attendance.filter(a => a.tanggal === today() && a.status === 'Hadir').length, 'circle-check')}</div><div class="surface p-6"><h3 class="font-bold mb-3">Aktivitas terbaru</h3>${attendance.slice(-4).reverse().map(a => `<div class="flex justify-between gap-2 py-3 border-b text-sm"><span>${esc(a.nama)} · ${esc(a.mata_kuliah)}</span>${statusTag(a.status)}</div>`).join('')}</div>`;
+                if (page === 'laporan') return reports();
+                let def = definitions[page], rows = collections[page], filtered = rows.filter(r => Object.values(r).some(v => String(v).toLowerCase().includes(query.toLowerCase()))), shown = filtered.slice((pageNum - 1) * 5, pageNum * 5);
+                return heading('Kelola ' + def.title, 'Cari, tambah, edit, dan hapus data demo', `<button class="btn primary mini" data-action="add" type="button"><i data-lucide="plus"></i>Tambah ${def.title}</button>`) + `<div class="surface p-4"><label class="lbl" for="search-data">Cari ${def.title}</label><input id="search-data" class="field mb-4" placeholder="Cari berdasarkan nama atau detail..." value="${esc(query)}"><div class="table-wrap"><table><thead><tr>${def.fields.map(f => `<th>${f[1]}</th>`).join('')}<th>Aksi</th></tr></thead><tbody>${shown.map(r => `<tr>${def.fields.map(([key]) => `<td>${esc(r[key])}</td>`).join('')}<td class="whitespace-nowrap"><button data-action="edit" data-id="${r.id}" class="text-blue-700 font-bold mr-3" type="button">Edit</button><button data-action="delete" data-id="${r.id}" class="text-red-600 font-bold" type="button">Hapus</button></td></tr>`).join('') || `<tr><td colspan="${def.fields.length + 1}" class="text-center py-10 text-slate-500">Tidak ada data yang cocok.</td></tr>`}</tbody></table></div><div class="flex items-center justify-between mt-4 text-sm text-slate-500"><span>${filtered.length} data · Halaman ${pageNum} dari ${Math.max(1, Math.ceil(filtered.length / 5))}</span><div class="flex gap-2"><button class="btn outline" data-action="prev" type="button" ${pageNum === 1 ? 'disabled' : ''}>Sebelumnya</button><button class="btn outline" data-action="next" type="button" ${pageNum * 5 >= filtered.length ? 'disabled' : ''}>Berikutnya</button></div></div></div>`;
+            }
+            function reports() {
+                let fields = [['tanggal', 'Tanggal', 'date'], ['jurusan', 'Jurusan', 'text'], ['kelas', 'Kelas', 'text'], ['mata_kuliah', 'Mata kuliah', 'text'], ['status', 'Status', 'select']];
+                let data = attendance.filter(a => fields.every(([k]) => !reportFilters[k] || String(a[k]).toLowerCase().includes(String(reportFilters[k]).toLowerCase())));
+                return heading('Laporan absensi', 'Filter seluruh kelas dan unduh contoh laporan') + `<div class="surface p-5 mb-5"><div class="grid sm:grid-cols-2 xl:grid-cols-5 gap-3">${fields.map(([k, label, type]) => `<div><label class="lbl" for="filter-${k}">${label}</label>${type === 'select' ? `<select class="field report-filter" id="filter-${k}" data-key="${k}"><option value="">Semua</option>${['Hadir', 'Telat', 'Izin', 'Sakit', 'Alpha'].map(v => `<option ${reportFilters[k] === v ? 'selected' : ''}>${v}</option>`).join('')}</select>` : `<input class="field report-filter" id="filter-${k}" data-key="${k}" type="${type}" value="${esc(reportFilters[k] || '')}">`}</div>`).join('')}</div><div class="flex flex-wrap gap-2 mt-4"><button class="btn primary" data-action="csv" type="button">Export Excel (CSV)</button><button class="btn outline" data-action="pdf" type="button">Export PDF</button></div></div><div class="surface table-wrap"><table><thead><tr><th>Tanggal</th><th>Mahasiswa</th><th>Kelas</th><th>Mata kuliah</th><th>Status</th></tr></thead><tbody>${data.map(a => `<tr><td>${esc(a.tanggal)}</td><td>${esc(a.nama)}</td><td>${esc(a.kelas)}</td><td>${esc(a.mata_kuliah)}</td><td>${statusTag(a.status)}</td></tr>`).join('') || '<tr><td colspan="5" class="text-center py-10">Tidak ada laporan untuk filter ini.</td></tr>'}</tbody></table></div>`;
+            }
+            function qrVisual(seed) {return `<div class="qr-grid" aria-label="Ilustrasi pola kode sesi demo">${Array.from({length: 121}, (_, i) => `<span class="qr-cell ${((i * 17 + seed.length * 13 + i * i) % 7) < 3 ? 'dark' : ''}"></span>`).join('')}</div>`}
+            function lecturerPage() {
+                if (page === 'overview') return heading('Selamat datang, Dr. Bima', 'Kelola kelas dan sesi kehadiran') + `<div class="grid sm:grid-cols-3 gap-4 mb-6">${stat('Mata kuliah diampu', 2, 'book-open')}${stat('Sesi dibuat', sessions.length, 'qr-code')}${stat('Kehadiran tercatat', attendance.length, 'check-circle')}</div><div class="grid md:grid-cols-2 gap-4">${courses.filter(c => c.dosen === credentials.dosen.name).map(c => `<div class="surface p-6"><span class="chip">${esc(c.kode)}</span><h3 class="font-bold text-lg mt-3">${esc(c.nama)}</h3><p class="text-sm text-slate-500">${esc(c.sks)} SKS · Kelas TI-4A</p></div>`).join('')}</div>`;
+                if (page === 'rekap') {let n = attendance.filter(a => a.sesi === 'S1'), present = n.filter(a => ['Hadir', 'Telat'].includes(a.status)).length, pct = n.length ? Math.round(present / n.length * 100) : 0; return heading('Rekap semester', 'Ringkasan data demo semester 4') + `<div class="grid sm:grid-cols-3 gap-4 mb-5">${stat('Total catatan', attendance.length, 'clipboard-list')}${stat('Hadir / Telat', attendance.filter(a => ['Hadir', 'Telat'].includes(a.status)).length, 'check')}${stat('Persentase sesi aktif', pct + '%', 'chart-pie')}</div><div class="surface p-6"><h3 class="font-bold mb-3">Basis Data · Semester 4</h3><div class="h-3 bg-blue-100 rounded-full"><div class="h-3 bg-blue-600 rounded-full" style="width:${pct}%"></div></div><p class="text-sm text-slate-500 mt-3">${present} dari ${n.length} catatan kehadiran.</p></div>`}
+                return heading('Sesi absensi', 'Buat sesi dan kelola status mahasiswa', `<button class="btn primary" data-action="new-session" type="button">+ Buat sesi baru</button>`) + sessions.slice().reverse().map(s => `<section class="surface p-5 mb-5" data-session="${esc(s.id)}"><div class="flex flex-wrap justify-between gap-4"><div><span class="chip">${sessionOpen(s) ? '● Aktif' : 'Ditutup'}</span><h3 class="font-extrabold text-lg mt-2">${esc(s.mata_kuliah)} · Pertemuan ${esc(s.pertemuan)}</h3><p class="text-sm text-slate-500">${esc(s.tanggal)} · ${esc(s.metode)} · ${esc(s.durasi)} menit</p><p class="font-bold text-blue-700 mt-2">Sisa waktu: <span class="countdown" data-id="${s.id}">${remaining(s)}</span></p></div>${s.metode === 'QR Code' ? `<div class="flex items-center gap-4">${qrVisual(s.kode)}<div><span class="text-xs text-slate-500">Kode demo</span><p class="font-mono font-bold">${esc(s.kode)}</p></div></div>` : ''}</div><div class="table-wrap mt-5"><table><thead><tr><th>Mahasiswa</th><th>NIM</th><th>Status</th><th>Catatan</th><th>Aksi</th></tr></thead><tbody>${students.filter(st => st.kelas === 'TI-4A').map(st => {let a = attendance.find(x => x.sesi === s.id && x.nim === st.nim); return `<tr><td>${esc(st.nama)}</td><td>${esc(st.nim)}</td><td>${a ? statusTag(a.status) : statusTag('Alpha')}</td><td>${esc(a?.catatan || '—')}</td><td><button class="text-blue-700 font-bold" data-action="manual" data-session="${s.id}" data-nim="${st.nim}" type="button">Ubah</button></td></tr>`}).join('')}</tbody></table></div></section>`).join('');
+            }
+            function studentPage() {
+                let own = attendance.filter(a => a.nim === credentials.mahasiswa.id), active = sessions.find(s => sessionOpen(s) && s.mata_kuliah === 'Basis Data'), already = active && own.some(a => a.sesi === active.id);
+                if (page === 'overview') return heading('Halo, Nadia!', 'Jadwal dan presensi pribadi Anda') + `<div class="grid sm:grid-cols-3 gap-4 mb-6">${stat('Kehadiran', own.length ? Math.round(own.filter(a => ['Hadir', 'Telat'].includes(a.status)).length / own.length * 100) + '%' : '0%', 'chart-pie')}${stat('Total riwayat', own.length, 'history')}${stat('Pengajuan menunggu', requests.filter(r => r.nim === credentials.mahasiswa.id).length, 'clock-3')}</div><div class="grid lg:grid-cols-2 gap-5"><div class="surface p-6"><h2 class="font-extrabold text-lg mb-4">Jadwal kuliah</h2>${schedules.filter(s => s.kelas === 'TI-4A').map(s => `<div class="border-b py-3 flex justify-between gap-3"><div><b>${esc(s.mata_kuliah)}</b><p class="text-sm text-slate-500">${esc(s.hari)} · ${esc(s.jam)}</p></div><span class="chip self-center">${esc(s.ruang)}</span></div>`).join('')}</div><div class="surface p-6"><h2 class="font-extrabold text-lg mb-4">Sesi absensi</h2>${active ? `<span class="chip">● Sesi aktif</span><h3 class="font-bold text-xl mt-3">${esc(active.mata_kuliah)}</h3><p class="text-sm text-slate-500 mt-1">Pertemuan ${esc(active.pertemuan)} · Sisa <span class="countdown" data-id="${active.id}">${remaining(active)}</span></p><p class="text-sm mt-3">${already ? 'Status Anda: Hadir · absensi ganda ditolak.' : 'Validasi berurutan diperlukan sebelum konfirmasi.'}</p><button class="btn primary mt-5" data-action="checkin" data-session="${active.id}" ${already ? 'disabled' : ''} type="button">${already ? 'Sudah absen' : 'Absen Sekarang'}</button>` : '<p class="text-slate-500">Tidak ada sesi terbuka. Sesi otomatis ditutup setelah durasinya habis.</p>'}</div></div>`;
+                if (page === 'riwayat') {let sem = $('#semester-filter')?.value || '4', items = own.filter(a => a.semester === sem); return heading('Riwayat absensi', 'Data kehadiran pribadi') + `<div class="surface p-5"><label class="lbl" for="semester-filter">Filter semester</label><select id="semester-filter" class="field max-w-xs mb-5"><option value="4" ${sem === '4' ? 'selected' : ''}>Semester 4</option><option value="2" ${sem === '2' ? 'selected' : ''}>Semester 2</option></select><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Mata kuliah</th><th>Status</th><th>Catatan</th></tr></thead><tbody>${items.map(a => `<tr><td>${esc(a.tanggal)}</td><td>${esc(a.mata_kuliah)}</td><td>${statusTag(a.status)}</td><td>${esc(a.catatan || '—')}</td></tr>`).join('') || '<tr><td colspan="4" class="text-center py-10">Belum ada riwayat di semester ini.</td></tr>'}</tbody></table></div><p class="text-sm text-slate-500 mt-4">Persentase kehadiran: ${items.length ? Math.round(items.filter(a => ['Hadir', 'Telat'].includes(a.status)).length / items.length * 100) : 0}%</p></div>`}
+                return heading('Pengajuan Izin / Sakit', 'Kirim contoh pengajuan untuk ditinjau dosen') + `<div class="grid lg:grid-cols-2 gap-5"><form id="request-form" class="surface p-6 space-y-4"><div><label class="lbl" for="request-type">Jenis pengajuan</label><select id="request-type" class="field"><option>Izin</option><option>Sakit</option></select></div><div><label class="lbl" for="request-course">Mata kuliah</label><select id="request-course" class="field">${courses.slice(0, 2).map(c => `<option>${esc(c.nama)}</option>`).join('')}</select></div><div><label class="lbl" for="request-note">Catatan</label><textarea id="request-note" class="field" required rows="3" placeholder="Jelaskan alasan singkat"></textarea></div><div><label class="lbl" for="request-file">Bukti foto atau surat</label><input id="request-file" class="field" type="file" accept="image/*,.pdf" required><p id="file-preview" class="text-sm text-slate-500 mt-2">Belum ada berkas dipilih.</p></div><button class="btn primary" type="submit">Kirim pengajuan demo</button><p class="text-xs text-slate-500">Berkas hanya ditampilkan namanya; tidak diunggah atau disimpan.</p></form><div class="surface p-6"><h3 class="font-bold mb-4">Status pengajuan</h3>${requests.filter(r => r.nim === credentials.mahasiswa.id).map(r => `<div class="border-b py-3"><b>${esc(r.type)} · ${esc(r.course)}</b><p class="text-sm text-slate-500">${esc(r.note)}</p><span class="chip mt-2">Menunggu persetujuan · Demo</span></div>`).join('') || '<p class="text-slate-500">Belum ada pengajuan.</p>'}</div></div>`;
+            }
+            const sql = `-- Contoh awal PostgreSQL; tinjau kebijakan akses sebelum produksi
+create type app_role as enum ('admin','dosen','mahasiswa');
+create type status_absensi as enum ('Hadir','Telat','Izin','Sakit','Alpha');
+create table users (
+ id uuid primary key references auth.users(id) on delete cascade,
+ role app_role not null, nama text not null
+);
+create table mahasiswa (
+ id uuid primary key default gen_random_uuid(),
+ user_id uuid unique references users(id), nim text unique not null,
+ jurusan text not null, kelas text not null, semester int not null
+);
+create table dosen (
+ id uuid primary key default gen_random_uuid(),
+ user_id uuid unique references users(id), nidn text unique not null,
+ jurusan text not null
+);
+create table mata_kuliah (
+ id uuid primary key default gen_random_uuid(),
+ kode text unique not null, nama text not null, sks int not null,
+ dosen_id uuid references dosen(id)
+);
+create table jadwal (
+ id uuid primary key default gen_random_uuid(),
+ mata_kuliah_id uuid not null references mata_kuliah(id),
+ kelas text not null, hari text not null, jam time not null, ruang text
+);
+create table sesi_absensi (
+ id uuid primary key default gen_random_uuid(),
+ jadwal_id uuid not null references jadwal(id),
+ dosen_id uuid not null references dosen(id),
+ pertemuan int not null, mulai_at timestamptz not null,
+ tutup_at timestamptz not null, metode text not null,
+ qr_token_hash text, radius_meter int not null default 100
+);
+create table absensi (
+ id uuid primary key default gen_random_uuid(),
+ sesi_absensi_id uuid not null references sesi_absensi(id),
+ mahasiswa_id uuid not null references mahasiswa(id),
+ status status_absensi not null, catatan text,
+ dibuat_at timestamptz not null default now(),
+ unique (sesi_absensi_id, mahasiswa_id)
+);
+create index absensi_mahasiswa_tanggal_idx
+ on absensi (mahasiswa_id, dibuat_at desc);
+create index absensi_sesi_status_idx
+ on absensi (sesi_absensi_id, status);
+create index jadwal_kelas_hari_idx on jadwal (kelas, hari);
+alter table users enable row level security;
+alter table mahasiswa enable row level security;
+alter table dosen enable row level security;
+alter table mata_kuliah enable row level security;
+alter table jadwal enable row level security;
+alter table sesi_absensi enable row level security;
+alter table absensi enable row level security;
+-- Tambahkan kebijakan RLS per role dan uji setiap operasi.
+-- Validasi sesi, perangkat, lokasi, QR, dan bukti di Edge Functions.`;
+            function docs() {return heading('Dokumentasi Teknis', 'Blueprint implementasi produksi — aplikasi saat ini hanya demo lokal') + `<div class="space-y-5"><section class="surface p-6"><h2 class="text-lg font-bold mb-3">Arsitektur</h2><p class="text-sm leading-relaxed text-slate-600">Next.js App Router + Tailwind CSS untuk UI, Supabase Auth untuk identitas, PostgreSQL untuk relasi data, RLS untuk pembatasan role, dan Supabase Edge Functions untuk verifikasi absensi. Skema: users → mahasiswa/dosen; dosen → mata_kuliah; mata_kuliah → jadwal → sesi_absensi → absensi.</p></section><section class="surface p-6"><div class="flex justify-between gap-3 items-center mb-3"><h2 class="text-lg font-bold">SQL schema contoh</h2><button class="btn soft" data-action="copy-sql" type="button">Salin SQL</button></div><pre class="bg-[#132847] text-blue-50 p-4 rounded-xl text-xs overflow-auto whitespace-pre max-h-[430px]">${esc(sql)}</pre></section><section class="surface p-6"><h2 class="text-lg font-bold mb-3">Instalasi ringkas</h2><ol class="list-decimal pl-5 space-y-2 text-sm text-slate-700"><li>Buat proyek: <code>npx create-next-app@latest presensikampus</code> dan pilih Tailwind CSS.</li><li>Pasang <code>npm install @supabase/supabase-js</code>.</li><li>Isi <code>.env.local</code> dengan <code>NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT.supabase.co</code> dan <code>NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_ANON_KEY</code>.</li><li>Jalankan SQL migration, buat kebijakan RLS yang sesuai, lalu uji akses tiap role.</li><li>Jalankan <code>npm run dev</code>.</li></ol></section><section class="surface p-6 border-amber-200 bg-amber-50"><h2 class="text-lg font-bold mb-2">Catatan keamanan produksi</h2><p class="text-sm leading-relaxed">Export Excel/PDF, GPS, scanner QR, kamera selfie, autentikasi, anti-fake-GPS, pembatasan perangkat, dan persetujuan izin harus diimplementasikan atau diperkuat di server. Geolokasi dan identitas perangkat dari browser tidak dapat dipercaya sepenuhnya. Jangan simpan secret/service-role key di frontend. Selfie demo ini bukan verifikasi biometrik.</p></section></div>`}
+            function entityModal(id) {let def = definitions[page], row = collections[page].find(r => r.id === id); openModal(`<div class="flex justify-between items-center mb-5"><h2 class="text-xl font-bold">${row ? 'Edit' : 'Tambah'} ${def.title}</h2><button class="btn outline" data-close type="button" aria-label="Tutup">✕</button></div><form id="entity-form" class="space-y-3">${def.fields.map(([key, label]) => `<div><label class="lbl" for="entity-${key}">${label}</label><input id="entity-${key}" name="${key}" class="field" value="${esc(row?.[key] || '')}" required></div>`).join('')}<p id="entity-error" role="alert" class="text-red-600 text-sm"></p><div class="flex gap-2 justify-end pt-3"><button class="btn outline" data-close type="button">Batal</button><button class="btn primary" type="submit">Simpan data</button></div></form>`); $('#entity-form').onsubmit = e => {e.preventDefault(); let values = Object.fromEntries(new FormData(e.currentTarget)); let uniqueKey = {mahasiswa: 'nim', dosen: 'nidn', matakuliah: 'kode'}[page]; if (uniqueKey && collections[page].some(x => x.id !== id && x[uniqueKey].toLowerCase() === values[uniqueKey].trim().toLowerCase())) {$('#entity-error').textContent = 'Identitas tersebut sudah digunakan.'; return } Object.keys(values).forEach(k => values[k] = values[k].trim()); if (row) Object.assign(row, values); else collections[page].push({id: String(Date.now()), ...values}); closeModal(); render(); toast('Data demo berhasil disimpan.')}}
+            function sessionModal() {openModal(`<h2 class="text-xl font-bold mb-5">Buat sesi absensi</h2><form id="session-form" class="space-y-3"><div><label class="lbl" for="new-course">Mata kuliah</label><select id="new-course" class="field">${courses.filter(c => c.dosen === credentials.dosen.name).map(c => `<option>${esc(c.nama)}</option>`).join('')}</select></div><div><label class="lbl" for="new-meeting">Pertemuan</label><input id="new-meeting" type="number" min="1" max="32" value="8" class="field" required></div><div><label class="lbl" for="new-date">Tanggal</label><input id="new-date" type="date" value="${today()}" class="field" required></div><div><label class="lbl" for="new-duration">Durasi (menit)</label><input id="new-duration" type="number" min="1" max="180" value="15" class="field" required></div><div><label class="lbl" for="new-method">Metode</label><select id="new-method" class="field"><option>QR Code</option><option>Manual</option></select></div><div class="flex justify-end gap-2 pt-3"><button class="btn outline" data-close type="button">Batal</button><button class="btn primary" type="submit">Aktifkan sesi</button></div></form>`); $('#session-form').onsubmit = e => {e.preventDefault(); let s = {id: 'S' + Date.now(), mata_kuliah: $('#new-course').value, pertemuan: $('#new-meeting').value, tanggal: $('#new-date').value, durasi: Number($('#new-duration').value), metode: $('#new-method').value, dibuat: Date.now(), kode: 'PK' + Math.random().toString(36).slice(2, 7).toUpperCase()}; sessions.push(s); closeModal(); render(); toast('Sesi demo aktif. Countdown dimulai.')}}
+            function manualModal(sid, nim) {let st = students.find(x => x.nim === nim), s = sessions.find(x => x.id === sid), a = attendance.find(x => x.sesi === sid && x.nim === nim); openModal(`<h2 class="text-xl font-bold mb-2">Ubah status mahasiswa</h2><p class="text-sm text-slate-500 mb-5">${esc(st.nama)} · ${esc(st.nim)}</p><form id="manual-form"><label class="lbl" for="manual-status">Status</label><select id="manual-status" class="field mb-4">${['Hadir', 'Telat', 'Izin', 'Sakit', 'Alpha'].map(v => `<option ${a?.status === v ? 'selected' : ''}>${v}</option>`).join('')}</select><label class="lbl" for="manual-note">Catatan</label><textarea id="manual-note" class="field" rows="3">${esc(a?.catatan || '')}</textarea><div class="flex justify-end gap-2 mt-5"><button class="btn outline" data-close type="button">Batal</button><button class="btn primary" type="submit">Simpan status</button></div></form>`); $('#manual-form').onsubmit = e => {e.preventDefault(); let data = {status: $('#manual-status').value, catatan: $('#manual-note').value.trim()}; if (a) Object.assign(a, data); else attendance.push({id: 'A' + Date.now(), sesi: sid, nim, nama: st.nama, mata_kuliah: s.mata_kuliah, kelas: st.kelas, jurusan: st.jurusan, semester: st.semester, tanggal: s.tanggal, ...data}); closeModal(); render(); toast('Status demo diperbarui.')}}
+            function checkinModal(sid) {
+                let s = sessions.find(x => x.id === sid); if (!s || !sessionOpen(s)) {toast('Sesi sudah ditutup.'); render(); return }
+                openModal(`<h2 class="text-xl font-bold mb-2">Verifikasi presensi demo</h2><p class="text-sm text-slate-500 mb-4">${esc(s.mata_kuliah)} · Sisa <span class="countdown" data-id="${s.id}">${remaining(s)}</span></p><div class="bg-amber-50 text-amber-900 rounded-xl p-3 text-xs mb-4">Simulasi UI saja: tidak ada verifikasi GPS, QR, wajah, atau perangkat yang aman. Pemeriksaan produksi wajib dilakukan di server.</div><div class="space-y-3"><div class="surface p-3"><b>1. Lokasi kampus (radius 100 m)</b><p id="gps-state" class="text-sm text-slate-500 mt-1">Izin GPS belum disimulasikan.</p><div class="flex flex-wrap gap-2 mt-2"><button class="btn soft text-sm" id="gps-valid" type="button">Simulasikan lokasi valid · 42 m</button><button class="btn outline text-sm" id="gps-invalid" type="button">Sinyal tidak valid / mock GPS</button></div></div><div class="surface p-3"><label class="lbl" for="qr-input">2. Kode sesi (mode demo scanner QR)</label><input id="qr-input" class="field" placeholder="Masukkan kode yang ditampilkan dosen"><p class="text-xs text-slate-500 mt-1">Kode demo untuk sesi ini: ${esc(s.kode)}. Kamera scanner belum terhubung.</p></div><div class="surface p-3"><label class="lbl" for="selfie-file">3. Foto selfie wajib (unggah demo)</label><input id="selfie-file" class="field" type="file" accept="image/*"><p id="face-state" class="text-xs mt-1 text-slate-500">Belum tersedia. Tidak ada analisis wajah biometrik.</p></div><p id="verification-list" class="text-sm text-slate-600" aria-live="polite"></p></div><div class="flex justify-end gap-2 mt-5"><button class="btn outline" data-close type="button">Batal</button><button class="btn primary" id="confirm-checkin" type="button" disabled>Konfirmasi presensi</button></div>`);
+                let gps = false, face = false;
+                function update() {let open = sessionOpen(s), qr = $('#qr-input').value.trim().toUpperCase() === s.kode, device = !deviceBindings.has(s.id) || deviceBindings.get(s.id) === credentials.mahasiswa.id, duplicate = attendance.some(a => a.sesi === s.id && a.nim === credentials.mahasiswa.id); $('#verification-list').textContent = `${open ? '✓' : '✕'} Sesi terbuka · ${gps ? '✓' : '✕'} GPS valid ≤100 m · ${qr ? '✓' : '✕'} Kode cocok · ${device && !duplicate ? '✓' : '✕'} Perangkat/akun belum dipakai · ${face ? '✓' : '✕'} Foto tersedia (simulasi wajah)`; $('#confirm-checkin').disabled = !(open && gps && qr && device && !duplicate && face)}
+                $('#gps-valid').onclick = () => {gps = true; $('#gps-state').textContent = '✓ Simulasi: 42 m dari kampus, sinyal normal. Browser tidak membuktikan keaslian GPS.'; update()};
+                $('#gps-invalid').onclick = () => {gps = false; $('#gps-state').textContent = '✕ Sinyal tidak valid / indikasi mock location: presensi ditolak.'; update()};
+                $('#qr-input').oninput = update;
+                $('#selfie-file').onchange = e => {face = !!e.target.files[0] && e.target.files[0].type.startsWith('image/'); $('#face-state').textContent = face ? '✓ Foto tersedia. Verifikasi wajah: simulasi UI, bukan kecocokan biometrik.' : '✕ Pilih berkas gambar yang valid.'; update()};
+                $('#confirm-checkin').onclick = () => {update(); if ($('#confirm-checkin').disabled) return; deviceBindings.set(s.id, credentials.mahasiswa.id); attendance.push({id: 'A' + Date.now(), sesi: s.id, nim: credentials.mahasiswa.id, nama: credentials.mahasiswa.name, mata_kuliah: s.mata_kuliah, kelas: 'TI-4A', jurusan: 'Teknik Informatika', semester: '4', tanggal: today(), status: 'Hadir', catatan: 'Presensi demo'}); closeModal(); render(); toast('Presensi demo berhasil dicatat. Status: Hadir.')}; update()
+            }
+            function downloadCSV() {let data = attendance.filter(a => ['tanggal', 'jurusan', 'kelas', 'mata_kuliah', 'status'].every(k => !reportFilters[k] || String(a[k]).toLowerCase().includes(String(reportFilters[k]).toLowerCase()))); let cols = ['tanggal', 'nim', 'nama', 'jurusan', 'kelas', 'mata_kuliah', 'status']; let csv = [cols.join(','), ...data.map(r => cols.map(k => '"' + String(r[k] || '').replace(/"/g, '""') + '"').join(','))].join('\r\n'); let a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['\ufeff' + csv], {type: 'text/csv;charset=utf-8'})); a.download = 'laporan-presensi-demo.csv'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); toast('CSV demo berhasil diunduh; dapat dibuka di Excel.')}
+            document.addEventListener('click', e => {
+                let el = e.target.closest('[data-page],[data-action],[data-close],[data-demo]'); if (el?.hasAttribute('data-close')) {closeModal(); return }
+                if (e.target.id === 'modal-backdrop') {closeModal(); return }
+                if (el?.dataset.demo) {let r = el.dataset.demo; $('#login-role').value = r; $('#login-id').value = credentials[r].id; $('#login-password').value = credentials[r].password; $('#login-error').classList.add('hidden'); toast('Akun demo ' + r + ' dipilih.'); return }
+                if (el?.dataset.page) {navigate(el.dataset.page); return }
+                if (!el?.dataset.action) return;
+                let action = el.dataset.action;
+                if (action === 'add' || action === 'edit') entityModal(el.dataset.id);
+                if (action === 'delete') {let id = el.dataset.id, def = definitions[page]; openModal(`<h2 class="text-xl font-bold mb-2">Hapus ${def.title}?</h2><p class="text-slate-600 mb-6">Tindakan ini menghapus data demo dari tampilan saat ini.</p><div class="flex justify-end gap-2"><button class="btn outline" data-close type="button">Batal</button><button id="confirm-delete" class="btn bg-red-600 text-white" type="button">Ya, hapus</button></div>`); $('#confirm-delete').onclick = () => {let list = collections[page], i = list.findIndex(x => x.id === id); if (i >= 0) list.splice(i, 1); closeModal(); render(); toast('Data demo dihapus.')}}
+                if (action === 'prev') {pageNum--; render()} if (action === 'next') {pageNum++; render()}
+                if (action === 'new-session') sessionModal();
+                if (action === 'manual') manualModal(el.dataset.session, el.dataset.nim);
+                if (action === 'checkin') checkinModal(el.dataset.session);
+                if (action === 'csv') downloadCSV();
+                if (action === 'pdf') openModal('<h2 class="text-xl font-bold mb-3">Export PDF — Demo</h2><p class="text-slate-600 mb-5">Generator PDF belum dihubungkan. Unduh CSV yang dapat dibuka di Excel, atau gunakan fitur cetak browser sebagai contoh tampilan. Export PDF produksi perlu diimplementasikan pada server.</p><button class="btn primary" data-close type="button">Mengerti</button>');
+                if (action === 'copy-sql') navigator.clipboard?.writeText(sql).then(() => toast('SQL disalin.')).catch(() => toast('Penyalinan tidak tersedia di browser ini.'));
+            });
+            document.addEventListener('input', e => {if (e.target.id === 'search-data') {query = e.target.value; pageNum = 1; let pos = e.target.selectionStart; render(); let n = $('#search-data'); n?.focus(); n?.setSelectionRange(pos, pos)} });
+            document.addEventListener('change', e => {if (e.target.classList.contains('report-filter')) {reportFilters[e.target.dataset.key] = e.target.value; render()} if (e.target.id === 'semester-filter') {let value = e.target.value; let own = attendance.filter(a => a.nim === credentials.mahasiswa.id && a.semester === value); $('#page-content tbody').innerHTML = own.map(a => `<tr><td>${esc(a.tanggal)}</td><td>${esc(a.mata_kuliah)}</td><td>${statusTag(a.status)}</td><td>${esc(a.catatan || '—')}</td></tr>`).join('') || '<tr><td colspan="4" class="text-center py-10">Belum ada riwayat di semester ini.</td></tr>'; $('#page-content .surface > p:last-child').textContent = `Persentase kehadiran: ${own.length ? Math.round(own.filter(a => ['Hadir', 'Telat'].includes(a.status)).length / own.length * 100) : 0}%`} if (e.target.id === 'request-file') $('#file-preview').textContent = e.target.files[0] ? `Dipilih: ${e.target.files[0].name}` : 'Belum ada berkas dipilih.'});
+            document.addEventListener('submit', e => {if (e.target.id === 'request-form') {e.preventDefault(); let file = $('#request-file').files[0], note = $('#request-note').value.trim(); if (!note || !file) {toast('Isi catatan dan pilih bukti terlebih dahulu.'); return } let btn = e.target.querySelector('[type=submit]'); btn.disabled = true; btn.textContent = 'Memproses...'; setTimeout(() => {requests.unshift({nim: credentials.mahasiswa.id, type: $('#request-type').value, course: $('#request-course').value, note}); render(); toast('Pengajuan demo tercatat: menunggu persetujuan.')}, 350)} });
+            $('#landing-login').onclick = $('#hero-cta').onclick = () => showView('login');
+            $('#back-landing').onclick = () => showView('public');
+            $('#toggle-password').onclick = () => {let input = $('#login-password'); input.type = input.type === 'password' ? 'text' : 'password'};
+            $('#login-form').onsubmit = e => {e.preventDefault(); let r = $('#login-role').value, id = $('#login-id').value.trim(), pass = $('#login-password').value, error = $('#login-error'); if (!id || !pass) {error.textContent = 'ID dan password wajib diisi.'; error.classList.remove('hidden'); return } if (id !== credentials[r].id || pass !== credentials[r].password) {error.textContent = 'Akun demo tidak cocok. Pilih salah satu akun demo di bawah.'; error.classList.remove('hidden'); return } error.classList.add('hidden'); let btn = $('#login-submit'); btn.disabled = true; setTimeout(() => {role = r; page = 'overview'; btn.disabled = false; showView('app'); nav(); render(); toast('Masuk sebagai ' + r + ' · mode demo.')}, 350)};
+            $('#logout').onclick = () => {role = null; closeModal(); showView('public'); toast('Anda telah keluar dari demo.')};
+            document.addEventListener('keydown', e => {if (e.key === 'Escape' && $('#modal-root').children.length) closeModal()});
+            setInterval(() => {document.querySelectorAll('.countdown').forEach(el => {let s = sessions.find(x => x.id === el.dataset.id); if (s) {let before = el.textContent; el.textContent = remaining(s); if (before !== '00:00' && el.textContent === '00:00') {if (!$('#modal-root').children.length) render(); toast('Sesi absensi telah ditutup.')} } })}, 1000);
+            icons();
+        })();
+    </script>
+
+</body>
+
+</html>
